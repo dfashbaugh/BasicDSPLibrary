@@ -1,0 +1,1 @@
+bool IsThresholdExceeded (int threshold, int curSample);

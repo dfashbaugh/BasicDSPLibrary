@@ -1,2 +1,2 @@
-dspmake: TestDSP.cpp BiquadFilter.cpp
-	g++ TestDSP.cpp BiquadFilter.cpp -o dspTest
+dspmake: TestDSP.cpp BiquadFilter.cpp BasicDSP.cpp
+	g++ TestDSP.cpp BiquadFilter.cpp BasicDSP.cpp -o dspTest
