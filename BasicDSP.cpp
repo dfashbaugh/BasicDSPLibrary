@@ -35,3 +35,27 @@ bool ZeroCrossDetector::IsZeroCross(int curSample)
 
 	return zeroCrossed;
 }
+
+bool PeakValleyDetector::IsPeakCross(int curSample)
+{
+	int differentiatedSample = theDifferentiator.CalculateDerivative(curSample);
+
+	if(theZeroCrossDetector.fromAbove == false)
+	{
+		return theZeroCrossDetector.IsZeroCross(differentiatedSample);
+	}
+
+	return false;
+}
+
+bool PeakValleyDetector::IsValleyCross(int curSample)
+{
+	int differentiatedSample = theDifferentiator.CalculateDerivative(curSample);
+
+	if(theZeroCrossDetector.fromAbove == true)
+	{
+		return theZeroCrossDetector.IsZeroCross(differentiatedSample);
+	}
+	
+	return false;
+}

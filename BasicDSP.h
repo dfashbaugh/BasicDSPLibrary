@@ -23,3 +23,16 @@ public:
 
 	bool IsZeroCross(int curSample);
 };
+
+class PeakValleyDetector
+{
+public:
+	Differentiator 		theDifferentiator;
+	ZeroCrossDetector 	theZeroCrossDetector;
+
+	PeakValleyDetector() {};
+	~PeakValleyDetector(){};
+
+	bool IsPeakCross(int curSample);
+	bool IsValleyCross(int curSample);
+};
