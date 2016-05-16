@@ -1,5 +1,4 @@
 #include "BasicDSP.h"
-#include <iostream>
 
 bool IsThresholdExceeded(int threshold, int curSample)
 {
