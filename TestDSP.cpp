@@ -110,11 +110,20 @@ bool testValleyDetector()
 	int sample6 = 2;
 
 	valleyDetector.IsValleyCross(sample1);
-	valleyDetector.IsValleyCross(sample2);
-	valleyDetector.IsValleyCross(sample3);
-	valleyDetector.IsValleyCross(sample4);
-	valleyDetector.IsValleyCross(sample5);
-	valleyDetector.IsValleyCross(sample6);
+	if(valleyDetector.IsValleyCross(sample2)) 			{passedTest = false;}
+	if(valleyDetector.IsValleyCross(sample3)) 			{passedTest = false;}
+	if(valleyDetector.IsValleyCross(sample4)) 			{passedTest = false;}
+	if(valleyDetector.IsValleyCross(sample5)) 			{passedTest = false;}
+	if(valleyDetector.IsValleyCross(sample6) == false) 	{passedTest = false;}
+
+	if(passedTest)
+	{
+		cout << "Passed Valley detection test" << endl;
+	}
+	else
+	{
+		cout << "Failed Valley detection test" << endl;
+	}
 
 	return passedTest;
 }
@@ -127,6 +136,7 @@ int main (void)
 	testDifferentiator();
 	testZeroCrossDetector();
 	testPeakDetector();
+	testValleyDetector();
 	
 	return 0;
 }

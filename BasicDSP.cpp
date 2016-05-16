@@ -1,4 +1,5 @@
 #include "BasicDSP.h"
+#include <iostream>
 
 bool IsThresholdExceeded(int threshold, int curSample)
 {
@@ -38,11 +39,11 @@ bool ZeroCrossDetector::IsZeroCross(int curSample)
 
 bool PeakValleyDetector::IsPeakCross(int curSample)
 {
-	int differentiatedSample = theDifferentiator.CalculateDerivative(curSample);
+	bool detectedZeroCross = StepDetector(curSample);
 
 	if(theZeroCrossDetector.fromAbove == false)
 	{
-		return theZeroCrossDetector.IsZeroCross(differentiatedSample);
+		return detectedZeroCross;
 	}
 
 	return false;
@@ -50,12 +51,18 @@ bool PeakValleyDetector::IsPeakCross(int curSample)
 
 bool PeakValleyDetector::IsValleyCross(int curSample)
 {
-	int differentiatedSample = theDifferentiator.CalculateDerivative(curSample);
+	bool detectedZeroCross = StepDetector(curSample);
 
 	if(theZeroCrossDetector.fromAbove == true)
 	{
-		return theZeroCrossDetector.IsZeroCross(differentiatedSample);
+		return detectedZeroCross;
 	}
 	
 	return false;
+}
+
+bool PeakValleyDetector::StepDetector(int curSample)
+{
+	int differentiatedSample = theDifferentiator.CalculateDerivative(curSample);
+	return theZeroCrossDetector.IsZeroCross(differentiatedSample);
 }

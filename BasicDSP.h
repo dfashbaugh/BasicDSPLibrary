@@ -35,4 +35,7 @@ public:
 
 	bool IsPeakCross(int curSample);
 	bool IsValleyCross(int curSample);
+
+private:
+	bool StepDetector(int curSample);
 };
