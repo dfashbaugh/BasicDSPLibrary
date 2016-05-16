@@ -19,7 +19,6 @@ public:
 	bool fromAbove;
 
 	ZeroCrossDetector() 					{fromAbove = false;};
-	ZeroCrossDetector(bool startFromAbove) 	{fromAbove = startFromAbove;};
 	~ZeroCrossDetector() {};
 
 	bool IsZeroCross(int curSample);
