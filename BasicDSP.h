@@ -7,8 +7,20 @@ class Differentiator
 public:
 	int lastSample;
 
-	Differentiator() {lastSample = 0;};
-	~Differentiator() {};
+	Differentiator() 	{lastSample = 0;};
+	~Differentiator() 	{};
 
 	int CalculateDerivative(int curSample);
+};
+
+class ZeroCrossDetector
+{
+public:
+	bool fromAbove;
+
+	ZeroCrossDetector() 					{fromAbove = false;};
+	ZeroCrossDetector(bool startFromAbove) 	{fromAbove = startFromAbove;};
+	~ZeroCrossDetector() {};
+
+	bool IsZeroCross(int curSample);
 };
