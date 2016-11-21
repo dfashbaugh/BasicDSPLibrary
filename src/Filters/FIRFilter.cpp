@@ -5,9 +5,19 @@ FIRFilter::FIRFilter(int numElements)
 {
 	FilterMemory = new float[numElements];
 	FilterCoefficients = new float[numElements];
+
+	InitializeFilter();
 }
 
 FIRFilter::~FIRFilter(){}
+
+void FIRFilter::InitializeFilter()
+{
+	for(int i = 0; i < elements; i++)
+	{
+		FilterMemory[i] = 0.0;
+	}
+}
 
 void FIRFilter::AddCoefficient(int delay, float coefficient)
 {
