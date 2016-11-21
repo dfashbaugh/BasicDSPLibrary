@@ -7,6 +7,8 @@ public:
 
 	void InitializeFilter();
 
+	float StepFilter(float input);
+
 private:
 	float* FilterMemory;
 	float* FilterCoefficients;

@@ -26,3 +26,25 @@ void FIRFilter::AddCoefficient(int delay, float coefficient)
 
 	FilterCoefficients[delay] = coefficient;
 }
+
+float FIRFilter::StepFilter(float input)
+{
+	if(elements < 1)
+		return 0.0;
+
+	float output = 0.0;
+
+	float curTransfer = FilterMemory[0];
+	for(int i = 1; i < elements; i++)
+	{
+		curTransfer = FilterMemory[i];
+		FilterMemory[i] = curTransfer;
+	}
+
+	for(int i = 0; i < elements; i++)
+	{
+		output += FilterMemory[i]*FilterCoefficients[i];
+	}
+
+	return output;
+}
