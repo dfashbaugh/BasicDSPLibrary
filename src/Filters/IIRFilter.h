@@ -3,6 +3,8 @@ public:
 	IIRFilter(int numElementsInput, int numElementsOutput);
 	~IIRFilter() {};
 
+	void InitializeFilter();
+
 private:
 	float* FilterMemoryInput;
 	float* FilterMemoryOutput;
