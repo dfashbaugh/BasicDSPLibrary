@@ -22,3 +22,19 @@ void IIRFilter::InitializeFilter()
 		FilterMemoryOutput[i] = 0.0;
 	}
 }
+
+void IIRFilter::AddInputCoefficient(int delay, float value)
+{
+	if(delay >= elementsInput)
+		return;
+
+	FilterCoefficientsInput[delay] = value;
+}
+
+void IIRFilter::AddOutputCoefficient(int delay, float value)
+{
+	if(delay >= elementsOutput)
+		return;
+
+	FilterCoefficientsOutput[delay] = value;
+}

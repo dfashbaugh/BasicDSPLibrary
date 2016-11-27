@@ -5,6 +5,9 @@ public:
 
 	void InitializeFilter();
 
+	void AddInputCoefficient(int delay, float value);
+	void AddOutputCoefficient(int delay, float value);
+
 private:
 	float* FilterMemoryInput;
 	float* FilterMemoryOutput;
