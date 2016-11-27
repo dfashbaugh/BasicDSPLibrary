@@ -34,12 +34,18 @@ float FIRFilter::StepFilter(float input)
 
 	float output = 0.0;
 
+
 	float curTransfer = FilterMemory[0];
+	float nextTransfer = curTransfer;
 	for(int i = 1; i < elements; i++)
 	{
-		curTransfer = FilterMemory[i];
+		curTransfer = nextTransfer;
+		nextTransfer = FilterMemory[i];
 		FilterMemory[i] = curTransfer;
+		curTransfer = FilterMemory[i];
 	}
+
+	FilterMemory[0] = input;
 
 	for(int i = 0; i < elements; i++)
 	{
