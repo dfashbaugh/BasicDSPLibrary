@@ -8,6 +8,8 @@ public:
 	void AddInputCoefficient(int delay, float value);
 	void AddOutputCoefficient(int delay, float value);
 
+	float StepFilter(float input);
+
 private:
 	float* FilterMemoryInput;
 	float* FilterMemoryOutput;
