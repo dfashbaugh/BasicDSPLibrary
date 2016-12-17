@@ -33,9 +33,9 @@ void CheckIIRImpulseResponse()
 	myFilter.AddInputCoefficient(0, 1);
 	myFilter.AddInputCoefficient(1, 1);
 	myFilter.AddInputCoefficient(2, 1);
-	myFilter.AddOutputCoefficient(0, 1);
-	myFilter.AddOutputCoefficient(1, 1);
-	myFilter.AddOutputCoefficient(2,1);
+	myFilter.AddOutputCoefficient(0, 0.1);
+	myFilter.AddOutputCoefficient(1, 0.1);
+	myFilter.AddOutputCoefficient(2,0.1);
 
 	cout << myFilter.StepFilter(1) << endl;
 
